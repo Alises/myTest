@@ -1,4 +1,4 @@
-package com.example.demo.test;
+package com.example.demo.test.simple;
 
 /**
  * 2019/8/1 create by gaoqian
