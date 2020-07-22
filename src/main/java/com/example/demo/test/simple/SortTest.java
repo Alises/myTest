@@ -12,8 +12,9 @@ public class SortTest {
 
 
     public static void main(String[] args) {
-        bubbleSort();
+//        bubbleSort();
 //        selectSort();
+        quickSort(array, 0, array.length - 1);
     }
 
     /**
@@ -58,6 +59,35 @@ public class SortTest {
     }
 
     /**
+     * 快速排序
+     * @param l 左指针
+     * @param r 右指针
+     */
+    private static void quickSort(int[] S, int l, int r) {
+        if(l < r) {
+            int i = l, j = r, temp = S[l];
+
+            while (i < j) {
+                while(i < j && S[j] >= temp)
+                    j --;
+                if(i < j) {
+                    S[i++] = S[j];
+                }
+
+                while (i < j && S[i] <= temp)
+                    i ++;
+                if(i < j) {
+                    S[j--] = S[i];
+                }
+            }
+            S[i] = temp;
+            outPut();
+            quickSort(S, l, i -1);
+            quickSort(S, i + 1, r);
+        }
+    }
+
+    /**
      * 打印数据
      */
     private static void outPut() {
@@ -68,5 +98,6 @@ public class SortTest {
             System.out.print(i);
             total ++;
         }
+        System.out.println();
     }
 }
