@@ -88,6 +88,19 @@ public class SortTest {
     }
 
     /**
+     * 归并排序 迭代法
+     * @param array
+     */
+    public static void margeSort(int[] array) {
+        int len = array.length;
+        int[] result = new int[len];
+        int block = 2;
+        while((len / block) > 0) {
+
+        }
+    }
+
+    /**
      * 打印数据
      */
     private static void outPut() {
