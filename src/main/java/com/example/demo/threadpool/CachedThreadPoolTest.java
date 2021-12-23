@@ -2,6 +2,7 @@ package com.example.demo.threadpool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Create By Gq
@@ -18,6 +19,12 @@ public class CachedThreadPoolTest {
                 @Override
                 public void run() {
                     System.out.println(Thread.currentThread().getName() + " ===> 打印参数： " + Thread.currentThread().getId());
+                    try {
+                        TimeUnit.SECONDS.sleep(30);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(Thread.currentThread().getName() + "End.");
                 }
             });
         }
