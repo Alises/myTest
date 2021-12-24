@@ -2,6 +2,7 @@ package com.example.demo.design.builder;
 
 /**
  * 2019/12/24 create by Gq
+ * 产品类
  */
 
 public class Product {

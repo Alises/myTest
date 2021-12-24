@@ -2,7 +2,7 @@
  * 2019/12/24 create by Gq
  */
 
-package com.example.demo.design.adapter;
+package com.example.demo.design.adapter.classes;
 
 /*
 在现实生活中，经常出现两个对象因接口不兼容而不能在一起工作的实例，这时需要第三者进行适配。

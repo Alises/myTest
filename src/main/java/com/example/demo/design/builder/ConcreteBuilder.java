@@ -2,6 +2,7 @@ package com.example.demo.design.builder;
 
 /**
  * 2019/12/24 create by Gq
+ * 具体创造者角色
  */
 
 public class ConcreteBuilder extends Builder {

@@ -1,8 +1,8 @@
-package com.example.demo.design.adapter;
+package com.example.demo.design.adapter.classes;
 
 /**
  * 2019/12/24 create by Gq
- * 原本的方法  需要被访问的方法
+ * 适配者 原本的方法  需要被访问的方法
  */
 
 public class Adaptee {

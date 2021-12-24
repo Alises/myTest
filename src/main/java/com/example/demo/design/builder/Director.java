@@ -2,6 +2,7 @@ package com.example.demo.design.builder;
 
 /**
  * 2019/12/24 create by Gq
+ * 指挥者角色
  */
 
 public class Director {
@@ -12,7 +13,7 @@ public class Director {
         this.builder = builder;
     }
 
-    public Product construct() {
+    public Product build() {
         builder.buildPartA();
         builder.buildPartB();
         builder.buildPartC();
