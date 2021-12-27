@@ -8,27 +8,13 @@ public class FlyWeightTest {
 
 
     public static void main(String[] args) {
-        WeiqiFactory weiqiFactory = WeiqiFactory.INSTANCE();
-        ChessPieces wPieces = weiqiFactory.getPieces(1);
-        wPieces.downPieces(10, 10);
-        wPieces.show();
-
-        ChessPieces bPieces = weiqiFactory.getPieces(2);
-        bPieces.downPieces(10,11);
-        bPieces.show();
-
-        ChessPieces wPieces2 = weiqiFactory.getPieces(1);
-        wPieces2.downPieces(11,11);
-        wPieces2.show();
-
-        ChessPieces bPieces2 = weiqiFactory.getPieces(2);
-        bPieces2.downPieces(12, 12);
-        bPieces2.show();
-
-        System.out.println("===================");
-        wPieces.show();
-        bPieces.show();
-        wPieces2.show();
-        bPieces2.show();
+        Flyweight a = FlyweightFactory.getFlyweight("A");
+        Flyweight a1 = FlyweightFactory.getFlyweight("A");
+        Flyweight b = FlyweightFactory.getFlyweight("B");
+        Flyweight b1 = FlyweightFactory.getFlyweight("B");
+        a.operation(new UnsharedFlyweight("a第一次被调用"));
+        a1.operation(new UnsharedFlyweight("a第二次被调用"));
+        b.operation(new UnsharedFlyweight("b第一次被调用"));
+        b1.operation(new UnsharedFlyweight("b第二次被调用"));
     }
 }
