@@ -21,20 +21,25 @@ public class ReentrantLockTest {
         t3.start();
 
         long end = System.currentTimeMillis();
-
+        t1.join();
+        t2.join();
+        t3.join();
         System.out.println(COUNT);
         System.out.println(end - start);
     }
 
 
     private static void add() {
-        lock.lock();
-        try {
-            TimeUnit.SECONDS.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (int i = 0; i < 1000; i++) {
+            lock.lock();
+            COUNT ++;
+            lock.unlock();
+            try {
+                TimeUnit.MILLISECONDS.sleep(500L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        lock.unlock();
     }
 
 }
