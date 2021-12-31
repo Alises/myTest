@@ -1,4 +1,4 @@
-package com.example.demo.test.simple;
+package com.example.demo.leetcode.simple;
 
 /**
  * 2019/12/9 create by Gq

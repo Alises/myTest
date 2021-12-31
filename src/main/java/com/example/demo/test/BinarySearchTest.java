@@ -1,4 +1,4 @@
-package com.example.demo.test.simple;
+package com.example.demo.test;
 
 /**
  * 2019/12/6 create by Gq

@@ -1,7 +1,6 @@
-package com.example.demo.test.medium;
+package com.example.demo.leetcode.medium;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Create 2021/12/31 by Gq
@@ -21,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  * 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
  * 输出：[8,9,9,9,0,0,0,1]
- *  
+ * 
  *
  * 提示：
  * 每个链表中的节点数在范围 [1, 100] 内

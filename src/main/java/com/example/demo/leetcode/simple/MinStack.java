@@ -1,7 +1,5 @@
-package com.example.demo.test.simple;
+package com.example.demo.leetcode.simple;
 
-
-import java.util.Deque;
 
 /**
  * Create 2021/12/9 by Gq

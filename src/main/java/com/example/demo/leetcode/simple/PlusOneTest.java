@@ -1,4 +1,4 @@
-package com.example.demo.test.simple;
+package com.example.demo.leetcode.simple;
 
 /**
  * 2019/12/25 create by Gq
@@ -7,12 +7,12 @@ package com.example.demo.test.simple;
  * 最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
  * 你可以假设除了 整数 0 之外，这个整数不会以零开头。
  * <p>
- * 示例 1:
+ * 示例1:
  * 输入: [1,2,3]
  * 输出: [1,2,4]
  * 解释: 输入数组表示数字 123。
  * <p>
- * 示例 2:
+ * 示例2:
  * 输入: [4,3,2,1]
  * 输出: [4,3,2,2]
  * 解释: 输入数组表示数字 4321。
