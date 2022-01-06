@@ -1,14 +1,38 @@
 # myTest
-自己练习设计模式和一些leetcode的题解
-com.example.demo/
-    /design   一些设计模式
-       /abstractfactory   （抽象工厂模式）
-       /adapter    (适配器模式)
-       /bridge    (桥接模式)
-       /builder   (建造者模式)
-       /factorymethod   (工厂方法模式)
-       /prototype   (原型模式)
-       /proxy   (代理模式)
-       /singleton   (单例模式)
-    /test     一些leetcode的题解练习
+自己练习和一些leetcode的题解  
+- com.example.demo/  
+  - /design   一些设计模式   
+    - /abstractfactory   （抽象工厂模式）  
+    - /adapter    (适配器模式)  
+    - /bridge    (桥接模式)  
+    - /builder   (建造者模式)  
+    - /chain      (责任链模式)  
+    - /command    (命令模式)  
+    - /composite   (组合模式)  
+    - /decorator   (装饰模式)  
+    - /facade     (门面模式)  
+    - /factorymethod   (工厂方法模式)  
+    - /flyweight  (享元模式)  
+    - /interpreter    (解释器模式)  
+    - /iterator   (迭代器模式，无代码实现)  
+    - /mediator   (中介者模式)  
+    - /memento   (备忘录模式)
+    - /observer  (观察者模式)
+    - /prototype   (原型模式)
+    - /proxy   (代理模式)
+    - /simplefactory  (简单工厂模式)
+    - /singleton   (单例模式)
+    - /state   (状态模式)
+    - /strategy    (策略模式)
+    - /template    (模版模式)
+    - /visitor    (访问者模式)
+  - /test     一些leetcode的题解练习  
+  - /threadpool  线程池  
+  - /stackoverflowed  栈溢出测试  
+  - /redisson   redis分布式锁  
+  - /QRCode   二维码生成和解析  
+  - /multipleThread   多线程  
+  - /loadclass     类加载测试  
+  - /demotest   一些测试  
+  - /datastructure   数据结构测试  
       
