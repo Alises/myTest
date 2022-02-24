@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SortTest {
 
-    private static int[] arrays = {12, 234, 456, 36, 235, 123, 345, 124, 462, 97};
+    private static int[] arrays = {456, 12, 234, 36, 235, 123, 345, 124, 462, 97};
 
 
     public static void main(String[] args) {
@@ -23,12 +23,12 @@ public class SortTest {
 //        selectSort(arrays);
 //        quickSort(arrays, 0, array.length - 1);
 //        insertSort(arrays);
-//        shellSort(arrays);
+        shellSort(arrays);
 //        heapSort(arrays);
 //        mergeSort(arrays, 0, arrays.length - 1);
 //        countSort(arrays);
 //        bucketSort(arrays);
-        radixSort(arrays);
+//        radixSort(arrays);
 
         System.out.println("用时：" + (System.currentTimeMillis() - startTime));
         // 输出集合
@@ -142,7 +142,7 @@ public class SortTest {
             for(int i = gap; i < array.length; i ++) {
                 // 比较并置换
                 int j = i;
-                while (j - gap > 0 && array[j] < array[j - gap]) {
+                while (j - gap >= 0 && array[j] < array[j - gap]) {
                     swap(array, j, j - gap);
                     j -= gap;
                 }
