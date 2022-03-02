@@ -192,7 +192,7 @@ public class SortTest {
         // 如果最大结点不是父结点 进行交换
         if(max != i) {
             swap(array, i, max);
-            heapify(array, max, lastIndex);
+//            heapify(array, max, lastIndex);
         }
     }
 
