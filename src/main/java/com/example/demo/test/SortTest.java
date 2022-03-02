@@ -23,8 +23,8 @@ public class SortTest {
 //        selectSort(arrays);
 //        quickSort(arrays, 0, array.length - 1);
 //        insertSort(arrays);
-        shellSort(arrays);
-//        heapSort(arrays);
+//        shellSort(arrays);
+        heapSort(arrays);
 //        mergeSort(arrays, 0, arrays.length - 1);
 //        countSort(arrays);
 //        bucketSort(arrays);
@@ -157,16 +157,17 @@ public class SortTest {
      * @param array
      */
     public static void heapSort(int[] array) {
-        // 初始建堆
-        for(int i = array.length / 2 - 1; i >= 0; i --) {
-            heapify(array, i, array.length - 1);
-        }
-        // 堆排序
-        for(int i = array.length - 1; i > 0; i --) {
-            // 交换堆顶结点和最后结点
-            swap(array, 0, i);
-            // 交换完之后会破坏堆结构，重新对堆结构进行重构
-            heapify(array, 0, i - 1);
+        int lastIndex = array.length - 1;
+        while(lastIndex > 0) {
+            // 从最后一个非叶子节点开始建堆
+            for(int i = lastIndex / 2 - 1; i >= 0; i --) {
+                heapify(array, i, lastIndex);
+            }
+            // 上面执行完之后会将最大的放到堆顶
+            // 交换堆顶和最后一个节点位置
+            swap(array, 0, lastIndex);
+            // 再次执行剩余的节点
+            lastIndex --;
         }
     }
 
