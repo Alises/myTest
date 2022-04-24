@@ -38,7 +38,7 @@ public class SubtitleMix {
     // 输出文件路径
     private static final String OUT_PUT_FILE_PATH = "/Users/gaoqian/Downloads/Movie/test/video/final_out_%s.mp4";
     // 输入文件路径
-    private static final String AUDIO_IN_PUT_PATH = "/Users/gaoqian/Downloads/Movie/test/video/sdd-br.mp3";
+    private static final String AUDIO_IN_PUT_PATH = "/Users/gaoqian/Downloads/Movie/test/video/lrq-cf.mp3";
     // 输入字幕背景文件路径
     private static final String IN_PUT_IMAGE_PATH = "/Users/gaoqian/Downloads/Movie/test/video/bg.png";
 
@@ -49,12 +49,12 @@ public class SubtitleMix {
 //        String filterContent = "drawtext=fontfile=" + FONT_PATH + ":textfile='" + FONT_CONTENT_PATH + "':line_spacing=20:fontsize=32:x=90:y='if(gte(t,2),h-300-(t-2)*20,h-200)'";
 //        String video = createVideo(filterContent);
 //        System.out.println(video);
-        String video = "/Users/gaoqian/Downloads/Movie/test/video/add_banner_out_1650509878098.mp4";
+        String video = "/Users/gaoqian/Downloads/Movie/test/video/add_banner_out_1650792401177.mp4";
 ////        // 2. 再添加音乐
-        boolean b = mergeAudioAndVideo(video, "/Users/gaoqian/Downloads/Movie/test/video/music_last_out_" + System.currentTimeMillis() + ".mp4");
+//        boolean b = mergeAudioAndVideo(video, "/Users/gaoqian/Downloads/Movie/test/video/music_last_out_" + System.currentTimeMillis() + ".mp4");
 //        margeVideo();
 //        System.out.println("创建成功： " + b);
-//        String video1 = margeMultiVideo("/Users/gaoqian/Downloads/Movie/test/video/music_last_out_1650510121007.mp4", "/Users/gaoqian/Downloads/Movie/test/video/marge_end.mp4");
+        String video1 = margeMultiVideo("/Users/gaoqian/Downloads/Movie/test/video/music_last_out_1650793586949.mp4", "/Users/gaoqian/Downloads/Movie/test/video/marge_end.mp4");
         System.out.println("共用时： " + (System.currentTimeMillis() - start) + " ms");
     }
 
@@ -75,9 +75,9 @@ public class SubtitleMix {
         File outputfile = new File("/Users/gaoqian/Downloads/Movie/test/video/image.jpg");
         boolean jpg = ImageIO.write(subtitleImage, "jpg", outputfile);
         System.out.println("图片保存成功：" + jpg);
-        // 合并头图
-        String subtitleFile = margeBannerImage(subtitleImage);
-        System.out.println(subtitleFile);
+//        // 合并头图
+//        String subtitleFile = margeBannerImage(subtitleImage);
+//        System.out.println(subtitleFile);
 //        boolean b = mergeAudioAndVideo(subtitleFile, "/Users/gaoqian/Downloads/Movie/test/video/music-file" + System.currentTimeMillis() + ".mp4");
 //        System.out.println(b);
     }
@@ -165,6 +165,9 @@ public class SubtitleMix {
             // 创建刻录器
 //            recorder = createOutputFile(outFileName, VIDEO_WIDTH, VIDEO_HEIGHT, 2);
             recorder = new FFmpegFrameRecorder(outFileName, VIDEO_WIDTH, VIDEO_HEIGHT, 2);
+            recorder.setVideoQuality(0L);
+            recorder.setFrameRate(FRAME);
+            recorder.setVideoBitrate(8000000);
             recorder.setFormat("mp4");
             recorder.start();
 
@@ -242,18 +245,19 @@ public class SubtitleMix {
      * @return
      */
     private static BufferedImage createBackgroundImage(BufferedImage logo, BufferedImage banner, BufferedImage corner) {
-        BufferedImage bufImg = new BufferedImage(VIDEO_WIDTH, VIDEO_HEIGHT, BufferedImage.TYPE_INT_RGB);
+        int times = 2;
+        BufferedImage bufImg = new BufferedImage(VIDEO_WIDTH * times, VIDEO_HEIGHT * times, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = bufImg.createGraphics();
         graphics.setPaint(new Color(255, 255, 255));
-        graphics.drawImage(bufImg, 0, 0, VIDEO_WIDTH, VIDEO_HEIGHT, null);
-        graphics.fillRect(0, 0, VIDEO_WIDTH, VIDEO_HEIGHT);
+        graphics.drawImage(bufImg, 0, 0, VIDEO_WIDTH * times, VIDEO_HEIGHT * times, null);
+        graphics.fillRect(0, 0, VIDEO_WIDTH * times, VIDEO_HEIGHT * times);
 
         // 设置头图
-        graphics.drawImage(banner, 0, 0, VIDEO_WIDTH, VIDEO_WIDTH * banner.getHeight() / banner.getWidth(), null);
+        graphics.drawImage(banner, 0, 0, VIDEO_WIDTH * times, VIDEO_WIDTH * times * banner.getHeight() / banner.getWidth(), null);
         // 设置logo背景
-        graphics.drawImage(logo, 10, 10, 100, 100, null);
+        graphics.drawImage(logo, 10, 10, 100 * times, 100 * times, null);
         // 设置角标
-        graphics.drawImage(corner, VIDEO_WIDTH - 100, 0, 100, 100, null);
+        graphics.drawImage(corner, VIDEO_WIDTH * times - 100 * times, 0, 100 * times, 100 * times, null);
 
         graphics.dispose();
 
@@ -281,7 +285,7 @@ public class SubtitleMix {
      */
     private static FFmpegFrameRecorder createOutputFile(String outFileName, int width, int height, int audioChannel) {
         // 设置输出路径
-        FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outFileName, width, height, audioChannel);
+        FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outFileName, width, height, 2);
 
         // 视频相关配置，取原视频配置
         recorder.setFrameRate(FRAME);
@@ -289,7 +293,8 @@ public class SubtitleMix {
         recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264);
         //设置视频图像数据格式
         recorder.setPixelFormat(avutil.AV_PIX_FMT_YUV420P);
-        recorder.setVideoBitrate(8000000);
+        recorder.setVideoBitrate(80000000);
+        recorder.setVideoQuality(0L);
         //视频格式  可以自己选
         recorder.setFormat("mp4");
         return recorder;
@@ -320,13 +325,19 @@ public class SubtitleMix {
             grabber1.start();
             grabber2.start();
             //创建录制
+            System.out.println("-----------------音乐通道：" + grabber2.getAudioChannels());
             recorder = new FFmpegFrameRecorder(outPut, grabber1.getImageWidth(), grabber1.getImageHeight(),
                     grabber2.getAudioChannels());
+            //设置视频编码层模式
+            recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264);
+            //设置视频图像数据格式
+            recorder.setPixelFormat(avutil.AV_PIX_FMT_YUV420P);
+//            recorder.setVideoBitrate(8000000);
             recorder.setFormat("mp4");
             recorder.start();
 
             long videoLengthTime = grabber1.getLengthInTime();
-            filter = new FFmpegFrameFilter("volume='if(lt(t,10),1,max(1-(t-10)/5,0))':eval=frame", grabber2.getAudioChannels());
+            filter = new FFmpegFrameFilter("volume='if(lt(t,38),1,max(1-(t-38)/3,0))':eval=frame", grabber2.getAudioChannels());
             filter.start();
 
             Frame frame1;
