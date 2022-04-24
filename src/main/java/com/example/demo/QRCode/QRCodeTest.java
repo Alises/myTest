@@ -6,9 +6,10 @@ package com.example.demo.QRCode;
 public class QRCodeTest {
     public static void main(String[] args) throws Exception {
 //        // 存放在二维码中的内容
-        String text = "http://192.168.125.115:8011/client/program/qrcode.m";
+        String text = "HTTP://program.ilodar.com/wechat/index";
 //        // 嵌入二维码的图片路径
-        String imgPath = "/Users/gaoqian/Downloads/QQ图片20190927160449.jpg";
+//        String imgPath = "/Users/gaoqian/Downloads/QQ图片20190927160449.jpg";
+        String imgPath = null;
 //        // 生成的二维码的路径及名称
         long l = System.currentTimeMillis();
         String destPath = "/Users/gaoqian/Downloads/Movie/IMG_674323o.jpg";
