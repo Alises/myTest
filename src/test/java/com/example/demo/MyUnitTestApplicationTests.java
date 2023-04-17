@@ -7,8 +7,11 @@ import com.example.demo.beans.ParentClass;
 public class MyUnitTestApplicationTests {
 
 	public static void main(String[] args) {
-		ParentClass p = new ParentClass();
-		add(p.getAge());
+//		ParentClass p = new ParentClass();
+//		add(p.getAge());
+		int i = 1, j;
+		j = ++i;
+		System.out.println(j);
 	}
 
 	public static void interfaceTest(InterfaceTest interfaceTest) {

@@ -62,11 +62,30 @@
 			<version>4.5.5-1.5.7</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+		</dependency>
+
+		<!-- neo -->
+		<dependency>
+			<groupId>io.neow3j</groupId>
+			<artifactId>contract</artifactId>
+			<version>3.17.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.neow3j</groupId>
+			<artifactId>devpack</artifactId>
+			<version>3.17.1</version>
+		</dependency>
+
 		<!-- jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.13.2.2</version>
+			<version>2.14.2</version>
 		</dependency>
 
 		<!-- lombok -->
@@ -76,6 +95,32 @@
 			<version>1.18.24</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- ali -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.9.1</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+<!--			<version>1.2.80</version>-->
+			<version>1.2.83_noneautotype</version>
+<!--			<version>1.2.83</version>-->
+		</dependency>
+		<dependency>
+			<groupId>org.asynchttpclient</groupId>
+			<artifactId>async-http-client</artifactId>
+			<version>2.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+
 
 	</dependencies>
 

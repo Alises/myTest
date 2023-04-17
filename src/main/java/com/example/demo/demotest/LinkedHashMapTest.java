@@ -12,7 +12,7 @@ public class LinkedHashMapTest {
 
     public static void main(String[] args) {
 
-        LinkedHashMap<String, String> lmap = new LinkedHashMap<>(16, 0.75f, true);
+        LinkedHashMap<String, String> lmap = new LinkedHashMap<>();
         lmap.put("key", "value");
         lmap.put("key1", "value");
         lmap.put("key2", "value");
